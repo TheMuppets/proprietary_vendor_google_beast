@@ -174,9 +174,9 @@ cc_prebuilt_library_shared {
             ],
             shared_libs: [
                 "libc++",
+                "libdl",
                 "libc",
                 "libm",
-                "libdl",
             ],
         },
     },
@@ -203,15 +203,6 @@ dex_import {
     jars: [
         "proprietary/vendor/framework/droidlogic.jar",
     ],
-    soc_specific: true,
-}
-
-prebuilt_etc_xml {
-    name: "android.hardware.security.keymint-service.amlogic.xml",
-    owner: "google",
-    src: "proprietary/vendor/etc/vintf/manifest/android.hardware.security.keymint-service.amlogic.xml",
-    filename_from_src: true,
-    sub_dir: "vintf/manifest",
     soc_specific: true,
 }
 
@@ -244,43 +235,6 @@ cc_prebuilt_binary {
                 "libbinder",
                 "libplayreadymediadrmplugin",
                 "android.hardware.drm@1.4",
-                "libc++",
-                "libc",
-                "libm",
-                "libdl",
-            ],
-        },
-    },
-    compile_multilib: "32",
-    strip: {
-        none: true,
-    },
-    prefer: true,
-    relative_install_path: "hw",
-    soc_specific: true,
-}
-
-cc_prebuilt_binary {
-    name: "android.hardware.security.keymint-service.amlogic",
-    owner: "google",
-    target: {
-        android_arm: {
-            srcs: [
-                "proprietary/vendor/bin/hw/android.hardware.security.keymint-service.amlogic",
-            ],
-            shared_libs: [
-                "android.hardware.security.keymint-V4-ndk",
-                "android.hardware.security.secureclock-V1-ndk",
-                "android.hardware.security.sharedsecret-V1-ndk",
-                "lib_android_keymaster_keymint_utils",
-                "libbase",
-                "libbinder_ndk",
-                "libhardware",
-                "libkeymaster_messages",
-                "libkeymint",
-                "liblog",
-                "libtrusty",
-                "libteec",
                 "libc++",
                 "libc",
                 "libm",
